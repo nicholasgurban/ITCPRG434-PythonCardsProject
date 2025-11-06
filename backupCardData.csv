@@ -1,0 +1,11 @@
+id,name,manaValue,color,type,rarity
+1,Worldfire,9,Red,Sorcery,Mythic
+2,Galewind Moose,6,Green,Creature,Uncommon
+3,Phyrexian Altar,3,Colorless,Artifact,Rare
+4,Dark Ritual,1,Black,Sorcery,Common
+5,Island,0,Colorless,Land,Common
+6,Counterspell,2,Blue,Instant,Common
+7,Wild Evocation,6,Red,Enchantment,Rare
+8,Anointed Procession,4,White,Enchantment,Rare
+9,Zimone and Dina,3,Black/Green/Blue,Creature,Rare
+10,Sphinx Summoner,5,Blue/Black,Artifact Creature,Uncommon

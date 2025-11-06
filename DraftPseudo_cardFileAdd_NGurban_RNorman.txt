@@ -1,0 +1,56 @@
+// Open csv, load data
+filepath = "sampleCardData.csv"
+
+cardFile = open(filepath)
+cardFileText = cardFile.read()
+cardFile.close()
+
+
+// splits csv file into table structure
+// newline split to seperate cards
+cardRows = cardFileText.split("\n")
+
+// loop over each card to split it into its data fields
+cardData = []
+i = 0
+while i < len(cardRows):
+    lineData = cardRows[i].split(",")
+    cardData.append(lineData)
+    i += 1
+ //// finished reading cards from file
+
+// prompts user to add new card details
+print("Please enter the new card's name: ")
+newCardName = read()
+print("Please enter the new card's mana value: ")
+newCardMana = read()
+print("Please enter the new card's colors: ")
+newCardColor = read()
+print("Please enter the new card's type: ")
+newCardType = read ()
+print("Please enter the new card's rarity: ")
+newCardRarity = read()
+
+// if card infomation wrong gives user chance to fix their mistake
+print "Does this match your card's information?")
+print("" + newCardName + " | " + newCardMana + " | " + newCardColor + " | " + newCardType + " | " + newCardRarity)
+print("Press 'N' if incorrect, otherwise press Enter.")
+userInput = read()
+
+// if card is correct add card details to new line bottom of csv
+if userInput.lower() != "n":
+
+    // assign card database id, and put details in csv format
+    newCardId = len(cardData)
+    newCardInfo = "" + newCardName + "," + newCardMana + "," + newCardColor + "," + newCardType + "," + newCardRarity
+    newCardLine = "\n" + str(newCardId) + "," + newCardInfo
+
+    // write new line appended to bottom
+    cardFile = open(filepath, "a")
+    cardFile.write(newCardLine)
+    cardFile.close()
+
+// In case card info is incorrect, end program.
+else:
+    print("Card not accepted")
+

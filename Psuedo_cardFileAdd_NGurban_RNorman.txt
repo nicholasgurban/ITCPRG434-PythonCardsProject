@@ -1,0 +1,70 @@
+// A simple database program for Magic the Gathering cards.
+// Loads cards from a .CSV file, and lets the user add to the file.
+// Developed by Nicholas Gurban and Robert Norman
+
+
+// Open csv, load data
+filepath = "sampleCardData.csv"
+
+cardFile = open(filepath)
+cardFileText = cardFile.read()
+cardFile.close()
+
+
+// splits csv file into table structure
+// newline split to seperate cards
+cardRows = cardFileText.split("\n")
+
+// loop over each card to split it into its data fields
+cardData = []
+i = 0
+while i < len(cardRows)
+    lineData = cardRows[i].split(",")
+    cardData.append(lineData)
+    i += 1
+// finished reading cards from file
+
+// A loop to allow the user to add multiple cards, confirming before each card is added.
+print("Do you want to add a new card to the database? (Y/N) ")
+anotherCard = read()
+while anotherCard.lower() != "n"
+    // prompts user to add new card details
+    print("Please enter the new card's name: ")
+    newCardName = read()
+    print("Please enter the new card's mana value: ")
+    newCardMana = read()
+    print("Please enter the new card's colors: ")
+    newCardColor = read()
+    print("Please enter the new card's type: ")
+    newCardType = read ()
+    print("Please enter the new card's rarity: ")
+    newCardRarity = read()
+
+    // if card infomation wrong gives user chance to fix their mistake
+    print("Does this match your card's information?")
+    print("" + newCardName + " | " + newCardMana + " | " + newCardColor + " | " + newCardType + " | " + newCardRarity)
+    print("Press 'N' if incorrect, otherwise press Enter.")
+    cardCorrect = read()
+
+    // if card is correct add card details to new line bottom of csv
+    if cardCorrect.lower() != "n"
+
+        // assign card database id, and put details in csv format
+        newCardId = len(cardData)
+        newCardInfo = "" + newCardName + "," + newCardMana + "," + newCardColor + "," + newCardType + "," + newCardRarity
+        newCardLine = "\n" + str(newCardId) + "," + newCardInfo
+
+        // write new line appended to bottom
+        cardFile = open(filepath, "a")
+        cardFile.write(newCardLine)
+        cardFile.close()
+
+    // In case card info is incorrect, print message to acknowledge.
+    else
+        print("Card not accepted")
+
+    // Then allow user to enter a new card.
+    print("Do you want to add another card to the database? (Y/N) ")
+    anotherCard = read()
+
+print("Closing program.")

@@ -1,0 +1,44 @@
+// A simple database program for Magic the Gathering cards.
+// Takes user input and adds that data to a storage array.
+
+// Developed by Nicholas Gurban and Robert Norman
+
+
+// Initialise parallel arrays
+CardId     = []
+CardName   = []
+CardMana   = []
+CardColor  = []
+CardType   = []
+CardRarity = []
+
+// A loop to allow the user to add multiple cards.
+print("Do you want to add a new card to the database? (Y/N) ")
+anotherCard = read()
+
+while anotherCard != "N":
+    // prompt user to add new card details
+    print("Please enter the new card's name: ")
+    newCardName = read()
+    print("Please enter the new card's mana value: ")
+    newCardMana = read()
+    print("Please enter the new card's colors: ")
+    newCardColor = read()
+    print("Please enter the new card's type: ")
+    newCardType = read()
+    print("Please enter the new card's rarity: ")
+    newCardRarity = read()
+
+    // add new card to parallel arrays
+    CardId.append(len(CardId) + 1)
+    CardName.append(newCardName)
+    CardMana.append(int(newCardMana))
+    CardColor.append(newCardColor)
+    CardType.append(newCardType)
+    CardRarity.append(newCardRarity)
+
+    // Then allow user to enter a new card.
+    print("Do you want to add another card to the database? (Y/N) ")
+    anotherCard = read()
+
+print("Closing program.")
